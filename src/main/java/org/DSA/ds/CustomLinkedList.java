@@ -60,6 +60,23 @@ public class CustomLinkedList<T> {
         size--;
         return value;
     }
+
+    public T deleteLast(){
+       if(size<=1){
+           return deleteFirst();
+       }
+       Node<T> secondLast=referenceNodeOfIndex(size-2);
+       T value= secondLast.value;
+       secondLast.next=null;
+       return value;
+    }
+    public Node<T> referenceNodeOfIndex(int index){
+        Node<T> temp = null;
+        for (int i = 0; i < index; i++) {
+            temp=head.next;
+        }
+        return temp;
+    }
     public void display(){
         Node<T>temp=head;
         while (temp!=null){
