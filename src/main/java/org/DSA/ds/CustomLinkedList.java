@@ -57,6 +57,7 @@ public class CustomLinkedList<T> {
         if(head==null){
             tail=null;
         }
+        size--;
         return value;
     }
     public void display(){
