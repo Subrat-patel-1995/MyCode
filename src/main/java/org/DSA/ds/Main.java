@@ -9,9 +9,11 @@ public class Main {
         customLinkedList.insertFirst(4);
         customLinkedList.insert(33,1);
 
-
-
-
+        System.out.println(customLinkedList.deleteFirst());
         customLinkedList.display();
+
+
+
+
     }
 }

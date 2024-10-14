@@ -51,6 +51,14 @@ public class CustomLinkedList<T> {
         temp.next=newNode;
         size++;
     }
+    public T deleteFirst(){
+        T value= head.value;
+        head=head.next;
+        if(head==null){
+            tail=null;
+        }
+        return value;
+    }
     public void display(){
         Node<T>temp=head;
         while (temp!=null){
