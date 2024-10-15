@@ -1,4 +1,4 @@
-package org.DSA.ds;
+package org.DSA.ds.ll;
 
 public class CustomLinkedList<T> {
 
@@ -51,6 +51,23 @@ public class CustomLinkedList<T> {
         temp.next=newNode;
         size++;
     }
+    public void insertUsingRecursion(T value,int index){
+        insertUsingRecursion(value,index,head);
+    }
+
+    //insert using recursion
+    private void insertUsingRecursion(T value,int index,Node<T> prev){
+       if(index==0){
+           Node<T> newNode=new Node<>(value);
+           newNode.next=prev.next.next;
+           prev.next=newNode;
+           size++;
+           return;
+       }
+
+       insertUsingRecursion(value,index-1,prev.next);
+    }
+
     public T deleteFirst(){
         T value= head.value;
         head=head.next;
@@ -68,7 +85,22 @@ public class CustomLinkedList<T> {
        Node<T> secondLast=referenceNodeOfIndex(size-2);
        T value= secondLast.value;
        secondLast.next=null;
+       size--;
        return value;
+    }
+    public T delete(int index) {
+        if (index == 0) {
+            return deleteFirst();
+        }
+        if (index == size - 1) {
+            return deleteLast();
+        }
+        Node<T> prev = referenceNodeOfIndex(index - 1);
+        T val=prev.next.value;
+        prev.next=prev.next.next;
+        size--;
+        return val;
+
     }
     public Node<T> referenceNodeOfIndex(int index){
         Node<T> temp = null;
@@ -79,11 +111,12 @@ public class CustomLinkedList<T> {
     }
     public void display(){
         Node<T>temp=head;
+        System.out.print("START-> ");
         while (temp!=null){
             System.out.print(temp.value+" ,");
             temp=temp.next;
         }
-        System.out.print(" END");
+        System.out.print(" ->END");
     }
 
     private static class Node <T>{
