@@ -30,7 +30,7 @@ public class LlPractice {
 
 
     //length of the cycle
-    public int lengthOfCycle(ListNode head) {
+    private int lengthOfCycle(ListNode head) {
         ListNode fast=head;
         ListNode slow=head;
         boolean hasCycle=false;
@@ -54,6 +54,47 @@ public class LlPractice {
         }
         return count;
     }
+
+    //142
+    public ListNode detectCycle(ListNode head) {
+        ListNode temp=head;
+       int length=lengthOfCycle(temp);
+        ListNode fast = head;
+       if(length>0) {
+
+           for (int i = 0; i < length; i++) {
+               fast = fast.next;
+           }
+           return fast;
+       }
+       return null;
+
+    }
+
+    //202
+    //https://leetcode.com/problems/happy-number/
+    public boolean isHappy(int n) {
+        int slow = n;
+        int fast= n;
+
+        do{
+           slow=findSquareOfInt(slow);
+           fast=findSquareOfInt(findSquareOfInt(fast));
+        }while (fast!=slow);
+        if(slow==1){
+            return true;
+        }
+        return false;
+    }
+    private int findSquareOfInt(int n){
+        int num=0;
+        while (n>0){
+            int rem=n%10;
+            num+=rem*rem;
+            n=n/10;
+        }
+        return num;
+    }
     public ListNode deleteDuplicates(ListNode head) {
         if(head==null){
             return head;
@@ -69,6 +110,8 @@ public class LlPractice {
         return head;
     }
 
+    //21
+    //https://leetcode.com/problems/merge-two-sorted-lists/description/?envType=problem-list-v2&envId=linked-list
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode head=new ListNode();
         ListNode newList=head;

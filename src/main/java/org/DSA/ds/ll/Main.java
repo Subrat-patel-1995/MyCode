@@ -2,30 +2,31 @@ package org.DSA.ds.ll;
 
 import org.DSA.ds.ll.DoubleLL;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
-       /* CustomLinkedList<Integer> customLinkedList=new CustomLinkedList<Integer>();
-        customLinkedList.insertFirst(1);
-        customLinkedList.insertFirst(2);
-        customLinkedList.insertFirst(3);
-        customLinkedList.insertFirst(4);
-        customLinkedList.insert(33,1);
 
-        System.out.println(customLinkedList.deleteFirst());
-        customLinkedList.display();
-*/
-        CustomLinkedList<Integer> dll=new CustomLinkedList<>();
-        dll.insertFirst(1);
-        dll.insertFirst(2);
-        dll.insertFirst(3);
-        dll.insertFirst(4);
-        dll.insertFirst(5);
+    int [] arr=new int[]{10,2,3,3,4,5};
+        System.out.println(findDuplicate(arr));
 
-        dll.insertUsingRecursion(99,0);
-
-        dll.display();
-
-
-
+    }
+    public static int findDuplicate(int[] nums) {
+        if(nums.length > 1){
+            int slow= nums[0];
+            int fast = nums[nums[0]];
+            while(slow != fast){
+                slow = nums[slow];
+                fast = nums[nums[fast]];
+            }
+            fast = 0;
+            while(fast != slow){
+                fast = nums[fast];
+                slow = nums[slow];
+            }
+            return slow;
+        }
+        return -1;
     }
 }
