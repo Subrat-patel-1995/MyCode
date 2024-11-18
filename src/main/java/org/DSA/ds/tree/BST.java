@@ -144,6 +144,7 @@ public class BST {
         bst.insert(2);
         bst.insert(1);
         System.out.println(bst.balanced());
+        System.out.println(bst.height(bst.root));
 
         bst.display(2);
     }
