@@ -103,7 +103,81 @@ public class practiceTree {
             return result;
         }
 
-      public class TreeNode {
+        //Question no 107
+        public List<List<Integer>> levelOrderBottom(TreeNode root){
+            List<List<Integer>> result=new ArrayList<>();
+            if(root==null){
+                return result;
+            }
+            LinkedList<TreeNode> list=new LinkedList<>();
+            list.add(root);
+
+            while (!list.isEmpty()){
+                List<Integer>level=new ArrayList<>();
+                for (int i = 0; i < list.size(); i++) {
+                    TreeNode node=list.poll();
+                    if(node.left!=null){
+                       list.add(node.left);
+                    }
+                    if(node.right!=null){
+                        list.add(node.right);
+                    }
+                    level.add(node.val);
+                }
+                result.add(0,level);
+            }
+            return result;
+        }
+
+        //Qestion no 429
+        public List<List<Integer>> levelOrder(Node root) {
+            List<List<Integer>> result=new ArrayList<>();
+            if(root==null){
+                return result;
+            }
+            Queue<Node> list=new LinkedList<>();
+            list.offer(root);
+            while (!list.isEmpty()){
+                int levelSize=list.size();
+                List<Integer> levelContents=new ArrayList<>();
+                for (int i = 0; i < levelSize; i++) {
+                    Node node=list.poll();
+                    List<Node> children=node.children;
+                   int childSize=children.size();
+                    for (int j = 0; j < childSize; j++) {
+                        list.offer(children.get(j));
+                    }
+                    levelContents.add(node.val);
+                }
+                result.add(levelContents);
+            }
+            return result;
+        }
+
+        //Question   590
+        public List<Integer> postorder(Node root) {
+            List<Integer> result=new ArrayList<>();
+            if(root==null){
+                return result;
+            }
+            Deque<Node> list=new LinkedList<>();
+            list.offer(root);
+            while (!list.isEmpty()){
+                int levelSize=list.size();
+                for (int i = 0; i < levelSize; i++) {
+                    Node node=list.poll();
+                    List<Node> children=node.children;
+                    int childSize=children.size();
+                    for (int j = 0; j < childSize; j++) {
+                        list.addFirst(children.get(j));
+                    }
+                    result.add(0,node.val);
+                }
+            }
+            return result;
+        }
+
+    public class TreeNode {
           int val;
           TreeNode left;
           TreeNode right;
@@ -115,6 +189,21 @@ public class practiceTree {
               this.right = right;
           }
       }
+    class Node {
+        public int val;
+        public List<Node> children;
+
+        public Node() {}
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, List<Node> _children) {
+            val = _val;
+            children = _children;
+        }
+    }
 
 
 }
