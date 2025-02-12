@@ -9,6 +9,7 @@ public class ScheduleRun {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private boolean active;
 
     private String repeatDays; // Stores days as a comma-separated string (e.g., "T,W,T,F,S")
