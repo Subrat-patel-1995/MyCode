@@ -10,6 +10,14 @@ public class LlPractice {
 //    Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
 
     public static void main(String[] args) {
+        // Creating l1: [2,4,3]
+        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+
+        // Creating l2: [5,6,4]
+        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+
+        // Adding two numbers
+        ListNode result = addTwoNumbers(l1, l2);
 
     }
     //141
@@ -136,7 +144,31 @@ public class LlPractice {
 
         return head.next;
     }
-    public class ListNode {
+    //2
+    //https://leetcode.com/problems/add-two-numbers/
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode(0); // Dummy node to simplify code
+        ListNode current = dummyHead;
+        int carry = 0;
+
+        while (l1 != null || l2 != null || carry != 0) {
+            int sum = carry;
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+
+            carry = sum / 10; // Get the carry for the next iteration
+            current.next = new ListNode(sum % 10); // Store the last digit of sum
+            current = current.next;
+        }
+        return dummyHead.next;
+    }
+    public static class ListNode {
         int val;
         ListNode next;
 
