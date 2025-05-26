@@ -7,6 +7,9 @@ import java.util.Map;
 
 public class Test {
     public static void main(String[] args) {
+
+    }
+    public static void main2(String[] args) {
         int max=10;
         List<Integer>result=new ArrayList<>();
         result.add(0);
@@ -39,5 +42,6 @@ public class Test {
         // Print the array
         System.out.println(a);
     }
+
 
 }
