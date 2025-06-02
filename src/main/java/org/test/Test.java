@@ -8,6 +8,11 @@ import java.util.Map;
 public class Test {
     public static void main(String[] args) {
 
+        String a="b";
+        String b=new String("b");
+        System.out.println(a==b);
+        System.out.println(a.hashCode()==b.hashCode());
+
     }
     public static void main2(String[] args) {
         int max=10;
