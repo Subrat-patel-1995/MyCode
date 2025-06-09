@@ -1,3 +1,17 @@
 Array - 1, 121, 217, 238, 53, 56, 73, 189, 283, 287, 268, 33, 152, 560
+Left-287
 
 String - 3, 242, 49, 125, 647, 5, 8, 28, 344, 151, 14, 1662, 392
+
+Stream->
+1. Find the second highest number in a list
+2. Group elements by length
+3. Count frequency of each character
+4. Find the first non-repeating character
+5. Sort a list of strings by their length and then alphabetically
+6. Partition numbers into even and odd
+7. Convert list to comma-separated string
+8. Map of word to its length
+9. Remove duplicates and sort
+10. Flatten a list of lists
+
