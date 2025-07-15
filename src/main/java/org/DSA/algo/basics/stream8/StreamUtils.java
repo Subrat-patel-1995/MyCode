@@ -28,6 +28,8 @@ public class StreamUtils {
 
         //2. Group elements by length
         List<String> names = List.of("Ram", "Shyam", "Amit", "Sunil");
+        Map<Integer,List<String>> result=names.stream().collect(Collectors.groupingBy(String::length));
+        System.out.println(result);
 
         Map<String, List<String>> collect = names.stream().collect(Collectors.groupingBy(e -> String.valueOf(e.charAt(0))));
         System.out.println(collect);
@@ -108,8 +110,41 @@ public class StreamUtils {
 
         //2. Convert list of strings to uppercase
 
+        List<Integer> list2=List.of(1,2,3,4,5,6,6,7,7);
+        Set<Integer> set=new HashSet<>();
+        list2.stream().filter(e->!set.add(e)).collect(Collectors.toList());
+        System.out.println(list2);
+
+           list2.stream()
+                .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(k->k.getValue()>1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+           new HashMap<>().entrySet().stream().collect(Collectors.toList());
 
 
+
+
+
+
+
+    }
+    public boolean isPalindrome(String s) {
+        char[] arr=s.toCharArray();
+        reverseHElper(arr,0,s.length());
+        String reverse=new String(arr);
+        return s.equals(reverse);
+    }
+    public void reverseHElper(char[] s,int start,int end){
+        if(start>=end) return;
+        char temp=s[start];
+        s[start]=s[end];
+        s[end]=temp;
+
+        reverseHElper(s,start+1,end-1);
     }
 
 

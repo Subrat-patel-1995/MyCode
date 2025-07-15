@@ -17,3 +17,15 @@
 //Observation
 1.Basic Searching and sorting algos..
 1.Sub Array-410 (Painters partition,Split array largest sum)
+
+Array & String - 1, 121, 238, 53, 3, 56, 73, 54, 48,1712,26,189
+HashMap - 49, 242, 347, 128, 560
+Two Pointers - 15, 11, 76, 283, 424-->424
+Linked List - 206, 21, 2, 141, 138
+Tree - 94, 98, 104, 236, 297
+Heap - 23, 347, 215, 295
+Graph - 200, 133, 207, 417, 684
+DP - 70, 198, 322, 300, 5, 72, 91==>common substring
+Backtracking - 78, 46, 79, 51, 39
+Bit Manipulation - 136, 191, 338, 78
+Greedy - 55, 134, 621, 763

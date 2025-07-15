@@ -2,6 +2,7 @@ Array - 1, 121, 217, 238, 53, 56, 73, 189, 283, 287, 268, 33, 152, 560
 Left-287
 
 String - 3, 242, 49, 125, 647, 5, 8, 28, 344, 151, 14, 1662, 392
+KMP
 
 Stream->
 1. Find the second highest number in a list
